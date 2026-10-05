@@ -34,11 +34,11 @@ export function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/80 bg-bg/85 backdrop-blur-xl transition-colors duration-300">
+    <header className="sticky top-0 z-50 w-full border-b border-border bg-bg/95 backdrop-blur-xl transition-colors duration-300 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between">
         {/* Brand Monogram */}
         <a href="#" className="flex items-center gap-3 group">
-          <div className="w-10 h-10 rounded-xl bg-surface-raised border border-border flex items-center justify-center font-mono font-bold text-primary group-hover:border-primary group-hover:shadow-[0_0_15px_rgba(var(--theme-glow),0.4)] transition-all duration-300">
+          <div className="w-10 h-10 rounded-xl bg-surface border border-border flex items-center justify-center font-mono font-bold text-primary group-hover:border-primary group-hover:shadow-[0_0_15px_rgba(var(--theme-glow),0.3)] transition-all duration-300 shadow-sm">
             LM
           </div>
           <div className="flex flex-col">
@@ -82,10 +82,9 @@ export function Header() {
         {/* Action Controls: Themes + i18n + CV */}
         <div className="hidden lg:flex items-center gap-4">
           {/* Theme Selector Pill */}
-          <div className="flex items-center bg-surface border border-border rounded-full p-1 shadow-inner">
+          <div className="flex items-center bg-surface border border-border rounded-full p-1 shadow-sm">
             {THEMES.map((t) => {
               const isActive = mounted && theme === t.id;
-              const Icon = t.icon;
               return (
                 <button
                   key={t.id}
@@ -93,7 +92,7 @@ export function Header() {
                   title={`Tema ${t.label}`}
                   className={`relative px-2.5 py-1 rounded-full text-xs font-mono flex items-center gap-1.5 transition-all duration-200 ${
                     isActive
-                      ? "text-primary bg-surface-raised shadow-sm font-bold border border-border"
+                      ? "text-primary bg-surface-raised shadow font-bold border border-border"
                       : "text-text-dim hover:text-text"
                   }`}
                 >
@@ -108,12 +107,12 @@ export function Header() {
           </div>
 
           {/* Bilingual Switcher Pill [ ES | EN ] */}
-          <div className="relative flex items-center bg-surface border border-border rounded-full p-1 text-xs font-mono">
+          <div className="relative flex items-center bg-surface border border-border rounded-full p-1 text-xs font-mono shadow-sm">
             <button
               onClick={() => setLanguage("es")}
               className={`px-3 py-1 rounded-full transition-all duration-200 ${
                 language === "es"
-                  ? "bg-primary text-bg font-bold shadow-md"
+                  ? "bg-primary text-white font-bold shadow-sm"
                   : "text-text-muted hover:text-text"
               }`}
             >
@@ -123,7 +122,7 @@ export function Header() {
               onClick={() => setLanguage("en")}
               className={`px-3 py-1 rounded-full transition-all duration-200 ${
                 language === "en"
-                  ? "bg-primary text-bg font-bold shadow-md"
+                  ? "bg-primary text-white font-bold shadow-sm"
                   : "text-text-muted hover:text-text"
               }`}
             >
@@ -134,7 +133,7 @@ export function Header() {
           {/* CV CTA */}
           <a
             href="#contact"
-            className="inline-flex items-center gap-1.5 text-xs font-mono font-medium px-4 py-2 rounded-xl bg-surface border border-border text-primary hover:border-primary transition-all duration-300 shadow-sm"
+            className="inline-flex items-center gap-1.5 text-xs font-mono font-medium px-4 py-2 rounded-xl bg-surface border border-border text-primary hover:border-primary hover:bg-surface-raised transition-all duration-300 shadow-sm"
           >
             <span>{dict.nav.downloadCv}</span>
             <ArrowUpRight className="w-3.5 h-3.5" />

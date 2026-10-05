@@ -499,7 +499,7 @@ def get_next_available_blind_auditor(exclude_auditor_id):
     whatsappText: "Hola Luis, revisé tu portafolio de ingeniería y me gustaría conversar sobre un proyecto de alto impacto.",
     emailLabel: "Correo Corporativo",
     copiedEmail: "Correo copiado al portapapeles",
-    location: "Disponible en Remoto Global (UTC-5 / EST / PST)",
+    location: "Disponible en Remoto Global • Venezuela (UTC-4 / EST)",
     ctaDownloadCv: "Descargar CV Técnico (PDF)",
   },
 };

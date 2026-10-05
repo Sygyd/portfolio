@@ -499,7 +499,7 @@ def get_next_available_blind_auditor(exclude_auditor_id):
     whatsappText: "Hi Luis, I reviewed your engineering portfolio and would love to discuss a high-impact project.",
     emailLabel: "Corporate Email",
     copiedEmail: "Email copied to clipboard",
-    location: "Available for Global Remote (UTC-5 / EST / PST)",
+    location: "Available for Global Remote • Venezuela (UTC-4 / EST)",
     ctaDownloadCv: "Download Technical Resume (PDF)",
   },
 };

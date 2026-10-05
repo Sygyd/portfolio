@@ -8,8 +8,10 @@ export function ContactFooter() {
   const { dict, language } = useLanguage();
   const [copiedEmail, setCopiedEmail] = useState(false);
 
-  const email = "luismartinez.systems@gmail.com";
-  const whatsappUrl = `https://wa.me/573000000000?text=${encodeURIComponent(dict.contact.whatsappText)}`;
+  const email = "luisjosemartinezc@gmail.com";
+  const whatsappUrl = `https://wa.me/584121889182?text=${encodeURIComponent(dict.contact.whatsappText)}`;
+  const githubUrl = "https://github.com/Sygyd";
+  const linkedinUrl = "https://www.linkedin.com/in/luisjosemartinezcontreras/";
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(email);
@@ -130,7 +132,7 @@ export function ContactFooter() {
         <div className="pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-text-dim">
           <div className="flex items-center gap-4">
             <a
-              href="https://github.com"
+              href={githubUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 hover:text-text transition-colors"
@@ -139,7 +141,7 @@ export function ContactFooter() {
               <span>GitHub</span>
             </a>
             <a
-              href="https://linkedin.com"
+              href={linkedinUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 hover:text-text transition-colors"
