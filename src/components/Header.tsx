@@ -17,9 +17,39 @@ export function Header() {
   const { language, setLanguage, dict } = useLanguage();
   const [mounted, setMounted] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const [activeSection, setActiveSection] = useState<string>("");
 
   useEffect(() => {
     setMounted(true);
+
+    const handleScroll = () => {
+      // 1. Calculate reading scroll progress percentage
+      const totalScroll = document.documentElement.scrollTop;
+      const windowHeight =
+        document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scroll = `${(totalScroll / windowHeight) * 100}%`;
+      setScrollProgress((totalScroll / (windowHeight || 1)) * 100);
+
+      // 2. Active section spy scroll
+      const sections = ["projects", "architecture", "simulators", "contact"];
+      const scrollPosition = window.scrollY + 200;
+
+      for (const sectionId of sections) {
+        const el = document.getElementById(sectionId);
+        if (el) {
+          const top = el.offsetTop;
+          const height = el.offsetHeight;
+          if (scrollPosition >= top && scrollPosition < top + height) {
+            setActiveSection(sectionId);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const handleThemeChange = (newTheme: string) => {
@@ -35,6 +65,12 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-bg/95 backdrop-blur-xl transition-colors duration-300 shadow-sm">
+      {/* Precision Scroll Progress Reading Bar */}
+      <div
+        className="absolute top-0 left-0 h-[2.5px] bg-gradient-to-r from-primary via-accent to-primary z-50 transition-all duration-100 ease-out"
+        style={{ width: `${scrollProgress}%` }}
+      />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between">
         {/* Brand Monogram */}
         <a href="#" className="flex items-center gap-3 group">
@@ -51,31 +87,59 @@ export function Header() {
           </div>
         </a>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-text-muted">
+        {/* Desktop Navigation with Spy Scroll Highlights */}
+        <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
           <a
             href="#projects"
-            className="hover:text-primary transition-colors py-1.5"
+            className={`py-1.5 transition-colors relative ${
+              activeSection === "projects"
+                ? "text-primary font-semibold"
+                : "text-text-muted hover:text-text"
+            }`}
           >
             {dict.nav.projects}
+            {activeSection === "projects" && (
+              <span className="absolute bottom-0 left-0 w-full h-0.5 bg-primary rounded-full animate-in fade-in duration-200" />
+            )}
           </a>
           <a
             href="#architecture"
-            className="hover:text-primary transition-colors py-1.5"
+            className={`py-1.5 transition-colors relative ${
+              activeSection === "architecture"
+                ? "text-primary font-semibold"
+                : "text-text-muted hover:text-text"
+            }`}
           >
             {dict.nav.architecture}
+            {activeSection === "architecture" && (
+              <span className="absolute bottom-0 left-0 w-full h-0.5 bg-primary rounded-full animate-in fade-in duration-200" />
+            )}
           </a>
           <a
             href="#simulators"
-            className="hover:text-primary transition-colors py-1.5"
+            className={`py-1.5 transition-colors relative ${
+              activeSection === "simulators"
+                ? "text-primary font-semibold"
+                : "text-text-muted hover:text-text"
+            }`}
           >
             {dict.nav.simulators}
+            {activeSection === "simulators" && (
+              <span className="absolute bottom-0 left-0 w-full h-0.5 bg-primary rounded-full animate-in fade-in duration-200" />
+            )}
           </a>
           <a
             href="#contact"
-            className="hover:text-primary transition-colors py-1.5"
+            className={`py-1.5 transition-colors relative ${
+              activeSection === "contact"
+                ? "text-primary font-semibold"
+                : "text-text-muted hover:text-text"
+            }`}
           >
             {dict.nav.contact}
+            {activeSection === "contact" && (
+              <span className="absolute bottom-0 left-0 w-full h-0.5 bg-primary rounded-full animate-in fade-in duration-200" />
+            )}
           </a>
         </nav>
 
