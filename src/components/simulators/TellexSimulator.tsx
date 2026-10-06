@@ -26,11 +26,14 @@ export function TellexSimulator() {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-border pb-4 gap-2">
         <div>
           <span className="text-xs font-mono text-primary font-bold">
-            SIMULADOR 3 • QA DOBLE CIEGO & RES JUDICATA
+            CASO EN VIVO 3 • GOBERNANZA QA & ALTO RENDIMIENTO
           </span>
           <h3 className="text-lg font-bold text-text mt-0.5">
-            Tellex Group: Arbitraje de Disputas & Prevención de Auto-Fail
+            Tellex Group: Arbitraje Doble Ciego & Optimización ETL
           </h3>
+          <p className="text-xs text-text-muted mt-1 max-w-2xl">
+            Comprueba cómo el sistema bloquea con HTTP 403 al auditor original para garantizar imparcialidad y cómo el hash SHA-256 en memoria redujo la sincronización a 18.2 segundos.
+          </p>
         </div>
 
         {/* Auditor Role Selector to test HTTP 403 security boundary */}

@@ -46,11 +46,14 @@ export function PuertoSimulator() {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-border pb-4 gap-2">
         <div>
           <span className="text-xs font-mono text-primary font-bold">
-            SIMULADOR 2 • ZERO-TRUST RLS & NORMATIVA TÍTULO IV
+            CASO EN VIVO 2 • SEGURIDAD ZERO-TRUST Y REGLAS DE NEGOCIO
           </span>
           <h3 className="text-lg font-bold text-text mt-0.5">
-            Puerto Aventura: Clasificador de Obras & Aislamiento de Tenant
+            Puerto Aventura: Clasificador de Obras (Título IV) & Aislamiento RLS
           </h3>
+          <p className="text-xs text-text-muted mt-1 max-w-2xl">
+            Prueba cómo las políticas de PostgreSQL Row Level Security aíslan los datos de cada condominio y cómo el motor evalúa fianzas y restringe accesos en fines de semana.
+          </p>
         </div>
 
         {/* Tenant Switcher with strict visual RLS indicator */}

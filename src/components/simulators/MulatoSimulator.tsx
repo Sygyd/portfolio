@@ -62,11 +62,14 @@ export function MulatoSimulator() {
       <div className="flex items-center justify-between border-b border-border pb-4">
         <div>
           <span className="text-xs font-mono text-primary font-bold">
-            SIMULADOR 1 • CONCURRENCIA & AFORO
+            CASO EN VIVO 1 • RESILIENCIA Y CONCURRENCIA
           </span>
           <h3 className="text-lg font-bold text-text mt-0.5">
-            El Mulato Cabaret: Lock de 15 Minutos & Consumo Mínimo
+            El Mulato Cabaret: Auto-liberación de Reservas (15 min) & Consumo Mínimo
           </h3>
+          <p className="text-xs text-text-muted mt-1 max-w-2xl">
+            Simula cómo el sistema previene reservas fantasma liberando mesas no pagadas tras 15 minutos y cómo Mr. Mulato calcula el cover y consumo mínimo automáticamente.
+          </p>
         </div>
 
         {/* 15 min lock simulated countdown */}
